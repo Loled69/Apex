@@ -2,27 +2,44 @@
 Apex is the brand name of a collection of cheats for various games. \
 *for educational purposes only!*
 
+
 ### Grand Theft Auto V
 A cheat focused on 'recovery' & Trolling functions.
 
 - Requires 2take1 Mod Menu
 - Written in LUA
 - In-Depth Recovery
-- Fully open-source
 
 ### Payday 3
 A cheat focused on making the game easier for handicapped gamers.
 
 - Written in C++
 - Has an easy to understand UI
-- Fully open-source
+
+### Bean Battles
+Simple cheat to get an advantage.
+
+- Written in C++
+- Based on [Kiero's ImGui Hook](https://github.com/rdbo/ImGui-DirectX-11-Kiero-Hook)
+
+### Lethal Company
+Simple cheat to see through the walls.
+
+- Written in C++
+- Player and Item ESP
+- Based on [Kiero's ImGui Hook](https://github.com/rdbo/ImGui-DirectX-11-Kiero-Hook)
 
 ### Red Dead Redemption II
 A cheat focused on making the game more fun.
 
-- Written in C#
+- Written in C++
 - Tons of features!
-- Fully open-source
+
+### Cyberpunk 2077
+Simple cheat with basic features.
+
+- Written in C++
+- Useful and fun features
 
 
 ## Contributing

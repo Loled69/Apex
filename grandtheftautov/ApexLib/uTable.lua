@@ -1,8 +1,5 @@
 local uTable = {}
 
-menu.create_thread(function()
-menu.notify("Loaded uTable")
- end)
 
 uTable.clothingIDs = {
 36699, 36700, 36701, 36702, 36703, 36704, 36705, 36706, 36707, 36708,

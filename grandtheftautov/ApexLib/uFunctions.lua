@@ -4,10 +4,6 @@ local uTable = require("ApexLib.uTable")
 
 local uFunctions = {}
 
-menu.create_thread(function()
-menu.notify("Loaded uFunctions")
- end)
-
 local mpx
 
 local leplayer = stats.stat_get_int(gameplay.get_hash_key("MPPLY_LAST_MP_CHAR"), 1)

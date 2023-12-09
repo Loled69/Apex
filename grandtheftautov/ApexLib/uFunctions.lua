@@ -13,6 +13,10 @@ else
     mpx = "1"
 end
 
+local function mpx2()
+    return "MP" .. stats.stat_get_int(gameplay.get_hash_key("MPPLY_LAST_MP_CHAR"), 1) .. "_"
+end
+
 function unlockPackedStat(index, mpxValue)
     native.call(0xDB8A58AEAA67CD07, index, true, mpxValue)
 end
@@ -153,6 +157,96 @@ function uFunctions.independenceDaySpecialAdditionalClothing2()
         script.set_global_i(262145 + index, 1)
         system.wait(2)
     end
+end
+
+function uFunctions.unlockFastRun()
+stats.stat_set_int(gameplay.get_hash_key(mpx2().."CHAR_ABILITY_1_UNLCK"), -1, true)
+stats.stat_set_int(gameplay.get_hash_key(mpx2().."CHAR_ABILITY_2_UNLCK"), -1, true)
+stats.stat_set_int(gameplay.get_hash_key(mpx2().."CHAR_ABILITY_3_UNLCK"), -1, true)
+stats.stat_set_int(gameplay.get_hash_key(mpx2().."CHAR_FM_ABILITY_1_UNLCK"), -1, true)
+stats.stat_set_int(gameplay.get_hash_key(mpx2().."CHAR_FM_ABILITY_2_UNLCK"), -1, true)
+stats.stat_set_int(gameplay.get_hash_key(mpx2().."CHAR_FM_ABILITY_3_UNLCK"), -1, true)
+menu.notify("Please change sessions.", "Apex")
+   end
+
+--[[function uFunctions.basicUnlocks()
+   menu.get_feature_by_hierarchy_key("online.recovery.stat_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.tattoo_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.parachute_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.rims_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.vehicle_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.trophy_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.hairstyle_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.weapon_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.clothing_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.doomsday_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.bunker_research_unlocks")
+   menu.get_feature_by_hierarchy_key("online.recovery.arena_unlocks")
+end]]-- idk why this doesnt work rn lol
+      
+function uFunctions.setKills()
+      local input_stat, input_val = input.get("Enter desired kills (Max. 2147483647)", "", 10, 3)
+    if input_stat == 1 then
+        return HANDLER_CONTINUE
+    end
+    if input_stat == 2 then
+        return HANDLER_POP
+    end
+	menu.notify("Might require a double click")
+stats.stat_set_int(gameplay.get_hash_key("MPPLY_KILLS_PLAYERS"), input_val, true)
+ end
+
+function uFunctions.setDeaths()
+      local input_stat, input_val = input.get("Enter desired deaths (Max. 2147483647)", "", 10, 3)
+    if input_stat == 1 then
+        return HANDLER_CONTINUE
+    end
+    if input_stat == 2 then
+        return HANDLER_POP
+    end
+	menu.notify("Might require a double click")
+stats.stat_set_int(gameplay.get_hash_key("MPPLY_DEATHS_PLAYER"), input_val, true)
+ end
+ 
+function uFunctions.setKD()
+      local input_stat, input_val = input.get("Enter desired K/D (Max. 2147483647)", "", 10, 3)
+    if input_stat == 1 then
+        return HANDLER_CONTINUE
+    end
+    if input_stat == 2 then
+        return HANDLER_POP
+    end
+stats.stat_set_float(gameplay.get_hash_key("MPPLY_KILL_DEATH_RATIO"), input_val, true)
+stats.stat_set_int(gameplay.get_hash_key("MPPLY_DEATHS_PLAYER"), 0, true)
+end
+
+function uFunctions.unlockArenaCars()
+  	stats.stat_set_int(gameplay.get_hash_key(mpx2().."ARENAWARS_AP_TIER"), 999, true)
+	stats.stat_set_int(gameplay.get_hash_key(mpx2().."ARENAWARS_AP"), 10039, true)
+	menu.notify("Change sessions and complete a Arena War mission.", "Apex")
+end
+
+function uFunctions.setCutscenesSeen()
+stats.stat_set_bool(gameplay.get_hash_key(mpx2().."LOW_FLOW_CS_DRV_SEEN"), true, true)
+stats.stat_set_bool(gameplay.get_hash_key(mpx2().."LOW_FLOW_CS_TRA_SEEN"), true, true)
+stats.stat_set_bool(gameplay.get_hash_key(mpx2().."LOW_FLOW_CS_FUN_SEEN"), true, true)
+stats.stat_set_bool(gameplay.get_hash_key(mpx2().."LOW_FLOW_CS_PHO_SEEN"), true, true)
+stats.stat_set_bool(gameplay.get_hash_key(mpx2().."LOW_FLOW_CS_FIN_SEEN"), true, true)
+stats.stat_set_bool(gameplay.get_hash_key(mpx2().."LOW_BEN_INTRO_CS_SEEN"), true, true)
+end
+
+function uFunctions.unlockLiveries()
+for i = 0,20 do
+        stats.stat_set_int(gameplay.get_hash_key(mpx2().."MPPLY_XMASLIVERIES"..i), -1, true)
+        stats.stat_set_int(gameplay.get_hash_key(mpx2().."AWD_TAXIDRIVER"), 50, true)
+	    stats.stat_set_masked_int(gameplay.get_hash_key(mpx2().."DLC22022PSTAT_INT536"), 10, 16, 8, true)
+ end
+end
+
+function uFunctions.unlockMeleeWeaponSkins()
+   script.set_global_i(262145 + 34131, 0)
+   script.set_global_i(262145 + 34094 + 9, -1716189206) -- Knife
+   script.set_global_i(262145 + 34094 + 10, -1786099057) -- Bat
 end
 
 return uFunctions

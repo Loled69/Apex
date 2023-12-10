@@ -1,6 +1,7 @@
 local appdata = utils.get_appdata_path("PopstarDevs", "2Take1Menu")
 package.path = appdata .. "\\scripts\\?.lua;" .. package.path  
 local uFunctions = require("ApexLib.uFunctions")
+local uTable = require("ApexLib.uTable")
 
 -- Welcome
 local menuName = "Apex"
@@ -89,4 +90,44 @@ end)
 
 menu.add_feature("Unlock EVERY Packed Stat", "action", uDLCSub.id, function()
     uFunctions.unlockEveryPackedStat()
+end)
+
+menu.add_feature("Unlock Fast Run and Reload", "action", usefulSub.id, function()
+    uFunctions.unlockFastRun()
+end)
+
+--[[menu.add_feature("Basic Unlock All", "toggle", unlocksSub.id, function(f)
+  uFunctions.basicUnlocks()
+  end)]]--
+  
+menu.add_feature("Set Kills", "action", miscSub.id, function()
+   uFunctions.setKills()
+end)
+
+menu.add_feature("Set Deaths", "action", miscSub.id, function()
+   uFunctions.setDeaths()
+end)
+
+menu.add_feature("Set K/D", "action", miscSub.id, function()
+   uFunctions.setKD()
+end)
+
+menu.add_feature("Unlock Arena Wars vehicles", "action", uVehiclesSub.id, function()
+uFunctions.unlockArenaCars()
+end)
+
+menu.add_feature("Set Cutscenes Seen", "action", usefulSub.id, function()
+uFunctions.setCutscenesSeen()
+end)
+
+menu.add_feature("Unlock some Liveries", "action", uVehiclesSub.id, function()
+uFunctions.unlockLiveries()
+end)
+
+menu.add_feature("Unlock Knife and Bat skins (Gun Van)", "action", uWeaponsSub.id, function()
+uFunctions.unlockMeleeWeaponSkins()
+end)
+
+menu.add_feature("Unlock most awards", "action", usefulSub.id, function()
+uTable.unlockAwards()
 end)
